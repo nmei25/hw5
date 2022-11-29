@@ -61,9 +61,10 @@ bool helpNurse(const AvailabilityMatrix& avail, const size_t dailyNeed, const si
 			//can't be schedule for same day again
 			copyAvail[sched.size()-1][i] = false;
 			//run through each day
+			//if recursive true
 			if(helpNurse(copyAvail,dailyNeed,maxShifts,sched,copyTrack))
 			{
-					return true;
+				return true;
 			}
 			//reverse what we did to try a different nurse
 			sched[sched.size()-1].pop_back();
